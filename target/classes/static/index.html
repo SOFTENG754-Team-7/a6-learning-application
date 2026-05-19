@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="header">
+        <p class="eyebrow">Learning App</p>
+        <h1>OOP Quiz</h1>
+        <p class="sub">Fetch a question, choose an answer, and see instant feedback.</p>
+      </header>
+
+      <form id="question-form" class="row" autocomplete="off">
+        <label for="questionId">Question ID</label>
+        <div class="inline">
+          <input id="questionId" name="questionId" placeholder="q1, q2, q3" />
+          <button type="submit">Load</button>
+        </div>
+      </form>
+
+      <section id="question-panel" class="panel hidden">
+        <p class="question" id="question-text"></p>
+        <div id="options" class="options"></div>
+        <button id="submit-answer" class="primary" type="button" disabled>Submit Answer</button>
+      </section>
+
+      <section id="feedback" class="feedback hidden" aria-live="polite"></section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
