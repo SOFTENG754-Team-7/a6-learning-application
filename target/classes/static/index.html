@@ -12,24 +12,23 @@
       <header class="header">
         <p class="eyebrow">Learning App</p>
         <h1>OOP Quiz</h1>
-        <p class="sub">Fetch a question, choose an answer, and see instant feedback.</p>
+        <p class="sub">Start the quiz, answer each question, and see instant feedback.</p>
       </header>
 
-      <form id="question-form" class="row" autocomplete="off">
-        <label for="questionId">Question ID</label>
-        <div class="inline">
-          <input id="questionId" name="questionId" placeholder="q1, q2, q3" />
-          <button type="submit">Load</button>
-        </div>
-      </form>
-
-      <section id="question-panel" class="panel hidden">
-        <p class="question" id="question-text"></p>
-        <div id="options" class="options"></div>
-        <button id="submit-answer" class="primary" type="button" disabled>Submit Answer</button>
+      <section id="home" class="home">
+        <p class="home-copy">Ready to test your OOP knowledge?</p>
+        <button id="start-quiz" class="primary" type="button">Start Quiz</button>
       </section>
 
-      <section id="feedback" class="feedback hidden" aria-live="polite"></section>
+      <section id="quiz" class="panel hidden">
+        <p class="question" id="question-text"></p>
+        <div id="options" class="options"></div>
+        <div class="actions">
+          <button id="submit-answer" class="primary" type="button" disabled>Submit Answer</button>
+          <button id="next-question" class="secondary hidden" type="button">Next Question</button>
+        </div>
+        <section id="feedback" class="feedback hidden" aria-live="polite"></section>
+      </section>
     </section>
   </main>
 

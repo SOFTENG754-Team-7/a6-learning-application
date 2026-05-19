@@ -1,11 +1,15 @@
-const questionForm = document.getElementById("question-form");
-const questionPanel = document.getElementById("question-panel");
+const homeSection = document.getElementById("home");
+const quizSection = document.getElementById("quiz");
 const questionText = document.getElementById("question-text");
 const optionsRoot = document.getElementById("options");
 const feedback = document.getElementById("feedback");
 const submitButton = document.getElementById("submit-answer");
+const nextButton = document.getElementById("next-question");
+const startButton = document.getElementById("start-quiz");
 
+const questionOrder = ["q1", "q2", "q3"];
 let currentQuestionId = null;
+let currentIndex = -1;
 let selectedAnswer = null;
 
 function setFeedback(message, isError = false) {
@@ -20,10 +24,19 @@ function clearFeedback() {
   feedback.classList.add("hidden");
 }
 
+function setOptionsDisabled(isDisabled) {
+  const inputs = optionsRoot.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.disabled = isDisabled;
+  });
+}
+
 function renderOptions(options) {
   optionsRoot.innerHTML = "";
   selectedAnswer = null;
   submitButton.disabled = true;
+  nextButton.classList.add("hidden");
+  setOptionsDisabled(false);
 
   options.forEach((option) => {
     const label = document.createElement("label");
@@ -61,9 +74,9 @@ async function loadQuestion(questionId) {
     currentQuestionId = data.questionId;
     questionText.textContent = data.question;
     renderOptions(data.options);
-    questionPanel.classList.remove("hidden");
+    quizSection.classList.remove("hidden");
+    homeSection.classList.add("hidden");
   } catch (error) {
-    questionPanel.classList.add("hidden");
     setFeedback(error.message, true);
   }
 }
@@ -91,19 +104,45 @@ async function submitAnswer() {
     }
 
     setFeedback(data.feedback, !data.correct);
+    setOptionsDisabled(true);
+    submitButton.disabled = true;
+
+    if (currentIndex >= questionOrder.length - 1) {
+      nextButton.textContent = "Back to homepage";
+    } else {
+      nextButton.textContent = "Next Question";
+    }
+    nextButton.classList.remove("hidden");
   } catch (error) {
     setFeedback(error.message, true);
   }
 }
 
-questionForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const questionId = new FormData(questionForm).get("questionId").trim();
-  if (!questionId) {
-    setFeedback("Enter a question ID to load.", true);
+function showHome() {
+  currentIndex = -1;
+  currentQuestionId = null;
+  selectedAnswer = null;
+  clearFeedback();
+  quizSection.classList.add("hidden");
+  homeSection.classList.remove("hidden");
+}
+
+function startQuiz() {
+  currentIndex = 0;
+  loadQuestion(questionOrder[currentIndex]);
+}
+
+function goToNext() {
+  if (currentIndex >= questionOrder.length - 1) {
+    showHome();
     return;
   }
-  loadQuestion(questionId);
-});
+  currentIndex += 1;
+  loadQuestion(questionOrder[currentIndex]);
+}
 
+startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", submitAnswer);
+nextButton.addEventListener("click", goToNext);
+
+showHome();
