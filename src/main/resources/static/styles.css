@@ -141,3 +141,21 @@ button:disabled {
 .secondary:hover {
   box-shadow: 0 8px 20px rgba(140, 62, 31, 0.18);
 }
+
+.results-title {
+  margin: 16px 0 6px;
+  font-family: "Literata", serif;
+  font-size: 1.3rem;
+}
+
+.results-score {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.results-copy {
+  margin: 0 0 16px;
+  color: var(--muted);
+}

@@ -1,16 +1,20 @@
 const homeSection = document.getElementById("home");
 const quizSection = document.getElementById("quiz");
+const resultsSection = document.getElementById("results");
 const questionText = document.getElementById("question-text");
 const optionsRoot = document.getElementById("options");
 const feedback = document.getElementById("feedback");
 const submitButton = document.getElementById("submit-answer");
 const nextButton = document.getElementById("next-question");
 const startButton = document.getElementById("start-quiz");
+const playAgainButton = document.getElementById("play-again");
+const resultsScore = document.getElementById("results-score");
 
 const questionOrder = ["q1", "q2", "q3"];
 let currentQuestionId = null;
 let currentIndex = -1;
 let selectedAnswer = null;
+let correctCount = 0;
 
 function setFeedback(message, isError = false) {
   feedback.textContent = message;
@@ -106,11 +110,14 @@ async function submitAnswer() {
     }
 
     setFeedback(data.feedback, !data.correct);
+    if (data.correct) {
+      correctCount += 1;
+    }
     setOptionsDisabled(true);
     submitButton.disabled = true;
 
     if (currentIndex >= questionOrder.length - 1) {
-      nextButton.textContent = "Back to homepage";
+      nextButton.textContent = "View Results";
     } else {
       nextButton.textContent = "Next Question";
     }
@@ -124,19 +131,30 @@ function showHome() {
   currentIndex = -1;
   currentQuestionId = null;
   selectedAnswer = null;
+  correctCount = 0;
+  resultsScore.textContent = "0/0";
   clearFeedback();
   quizSection.classList.add("hidden");
+  resultsSection.classList.add("hidden");
   homeSection.classList.remove("hidden");
+}
+
+function showResults() {
+  resultsScore.textContent = `${correctCount}/${questionOrder.length}`;
+  quizSection.classList.add("hidden");
+  homeSection.classList.add("hidden");
+  resultsSection.classList.remove("hidden");
 }
 
 function startQuiz() {
   currentIndex = 0;
+  correctCount = 0;
   loadQuestion(questionOrder[currentIndex]);
 }
 
 function goToNext() {
   if (currentIndex >= questionOrder.length - 1) {
-    showHome();
+    showResults();
     return;
   }
   currentIndex += 1;
@@ -146,5 +164,6 @@ function goToNext() {
 startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", submitAnswer);
 nextButton.addEventListener("click", goToNext);
+playAgainButton.addEventListener("click", showHome);
 
 showHome();

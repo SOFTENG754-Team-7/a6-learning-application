@@ -11,7 +11,6 @@
     <section class="card">
       <header class="header">
         <h1>OOP Quiz</h1>
-        <p class="sub">Start the quiz, answer each question, and see instant feedback.</p>
       </header>
 
       <section id="home" class="home">
@@ -27,6 +26,12 @@
           <button id="next-question" class="secondary hidden" type="button">Next Question</button>
         </div>
         <section id="feedback" class="feedback hidden" aria-live="polite"></section>
+      </section>
+
+      <section id="results" class="panel hidden">
+        <h2 class="results-title">Your Results</h2>
+        <p class="results-score" id="results-score">0/0</p>
+        <button id="play-again" class="primary" type="button">Back to homepage</button>
       </section>
     </section>
   </main>
