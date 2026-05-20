@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="header">
+        <h1>OOP Quiz</h1>
+      </header>
+
+      <section id="home" class="home">
+        <p class="home-copy">Ready to test your OOP knowledge?</p>
+        <button id="start-quiz" class="primary" type="button">Start Quiz</button>
+      </section>
+
+      <section id="quiz" class="panel hidden">
+        <p class="question" id="question-text"></p>
+        <div id="options" class="options"></div>
+        <div class="actions">
+          <button id="submit-answer" class="primary" type="button" disabled>Submit Answer</button>
+          <button id="next-question" class="secondary hidden" type="button">Next Question</button>
+        </div>
+        <section id="feedback" class="feedback hidden" aria-live="polite"></section>
+      </section>
+
+      <section id="results" class="panel hidden">
+        <h2 class="results-title">Your Results</h2>
+        <p class="results-score" id="results-score">0/0</p>
+        <button id="play-again" class="primary" type="button">Back to homepage</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
