@@ -10,7 +10,7 @@ const startButton = document.getElementById("start-quiz");
 const playAgainButton = document.getElementById("play-again");
 const resultsScore = document.getElementById("results-score");
 
-const questionOrder = ["q1", "q2", "q3"];
+const questionOrder = ["q1", "q2", "q3", "q4", "q5"];
 let currentQuestionId = null;
 let currentIndex = -1;
 let selectedAnswer = null;
@@ -71,7 +71,7 @@ async function loadQuestion(questionId) {
   try {
     const response = await fetch(`/api/quiz/${questionId}`);
     if (!response.ok) {
-      throw new Error("Question not found. Try q1, q2, or q3.");
+      throw new Error("Question not found. Try q1, q2, q3, q4, or q5.");
     }
 
     const data = await response.json();

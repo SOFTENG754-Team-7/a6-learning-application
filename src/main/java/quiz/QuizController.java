@@ -9,7 +9,7 @@ import java.util.Map;
 @RequestMapping("/api/quiz")
 public class QuizController {
 
-    // Simulated question bank - 3 OOP questions
+    // Simulated question bank - 5 OOP questions
     private static final Map<String, Quiz> questions = new HashMap<>();
 
     static {
@@ -40,6 +40,28 @@ public class QuizController {
                 "D) A static method"
             },
             "B"
+        ));
+        questions.put("q4", new Quiz(
+            "q4",
+            "Which of the following is NOT a principle of OOP?",
+            new String[]{
+                "A) Encapsulation",
+                "B) Inheritance",
+                "C) Polymorphism",
+                "D) Compilation"
+            },
+            "D"
+        ));
+        questions.put("q5", new Quiz(
+            "q5",
+            "What does the 'this' keyword refer to in Java?",
+            new String[]{
+                "A) The current class",
+                "B) The current method",
+                "C) The current object instance",
+                "D) The parent class"
+            },
+            "C"
         ));
     }
 
