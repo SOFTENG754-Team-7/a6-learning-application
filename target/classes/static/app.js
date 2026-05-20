@@ -72,7 +72,9 @@ async function loadQuestion(questionId) {
 
     const data = await response.json();
     currentQuestionId = data.questionId;
-    questionText.textContent = data.question;
+    const orderIndex = questionOrder.indexOf(data.questionId);
+    const questionNumber = orderIndex >= 0 ? orderIndex + 1 : currentIndex + 1;
+    questionText.textContent = `Q${questionNumber}. ${data.question}`;
     renderOptions(data.options);
     quizSection.classList.remove("hidden");
     homeSection.classList.add("hidden");

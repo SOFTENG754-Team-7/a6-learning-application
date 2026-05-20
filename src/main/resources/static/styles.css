@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Cabin:wght@400;500;600&display=swap");
 
 :root {
-  --bg: #f7f2ea;
-  --bg-accent: #efe3d1;
+  --bg: #f7eaf0;
+  --bg-accent: #efd1ef;
   --ink: #1f1b16;
-  --muted: #6b5d50;
-  --brand: #c25b2f;
-  --brand-dark: #8c3e1f;
+  --muted: #ae599b;
+  --brand: #e162e3;
+  --brand-dark: #ab61b9;
   --card: #fffaf4;
-  --border: #e6d9c7;
+  --border: #e6c7d5;
 }
 
 * {
@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Cabin", sans-serif;
   background: radial-gradient(circle at top, var(--bg-accent), var(--bg));
   color: var(--ink);
 }
@@ -34,22 +34,14 @@ body {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 24px;
-  padding: 32px;
+  padding: 20px;
   box-shadow: 0 20px 60px rgba(31, 27, 22, 0.12);
 }
 
 .header h1 {
-  font-family: "Fraunces", serif;
-  font-size: 2.4rem;
+  font-family: "Literata", serif;
+  font-size: 1.5rem;
   margin: 0 0 8px;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  margin: 0 0 12px;
-  color: var(--muted);
 }
 
 .sub {
@@ -62,7 +54,7 @@ button {
   background: var(--brand);
   color: white;
   font-weight: 600;
-  padding: 12px 18px;
+  padding: 12px 14px;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -74,7 +66,7 @@ button:hover {
 }
 
 button:disabled {
-  background: #d9c7bc;
+  background: var(--border);
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -82,7 +74,7 @@ button:disabled {
 
 .panel {
   border-top: 1px solid var(--border);
-  padding-top: 20px;
+  padding-top: 6px;
 }
 
 .home {
@@ -98,31 +90,31 @@ button:disabled {
 
 .question {
   font-size: 1.1rem;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
 .options {
   display: grid;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .option {
-  padding: 12px 14px;
+  padding: 9px 10px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: #fff;
+  background: var(--card);
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
 .feedback {
-  margin-top: 18px;
-  padding: 14px 16px;
+  margin-top: 12px;
+  padding: 14px 12px;
   border-radius: 12px;
-  background: #f5eee6;
+  background: var(--card);
   border: 1px solid var(--border);
 }
 
@@ -141,7 +133,7 @@ button:disabled {
 
 .secondary {
   width: 100%;
-  background: #f1e5d8;
+  background: var(--bg-accent);
   color: var(--brand-dark);
   border: 1px solid var(--border);
 }
