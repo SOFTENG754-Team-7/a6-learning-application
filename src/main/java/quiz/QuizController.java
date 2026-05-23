@@ -15,51 +15,56 @@ public class QuizController {
     static {
         questions.put("q1", new Quiz(
             "q1",
-            "What is encapsulation in OOP?",
+            "Class 'Dog' extends class 'Animal'. What does this mean?",
             new String[]{
-                "A) Hiding internal state and requiring interaction through methods",
-                "B) Creating multiple instances of a class",
-                "C) Extending a class",
-                "D) Overriding a method"
+                "A) Dog and Animal are unrelated classes",
+                "B) Dog inherits the fields and methods of Animal",
+                "C) Animal inherits the fields and methods of Dog",
+                "D) Dog and Animal share the same constructor"
             },
-            "A"
+            "B"
         ));
         questions.put("q2", new Quiz(
             "q2",
-            "Which keyword is used for inheritance in Java?",
-            new String[]{"A) implements", "B) extends", "C) inherits", "D) super"},
-            "B"
+            "Which option best describes a superclass?",
+            new String[]{
+                "A) A class that is inherited by another class",
+                "B) A class that cannot be instantiated",
+                "C) A class whose fields and methods are inherited by another class",
+                "D) A class with only static methods"
+            },
+            "C"
         ));
         questions.put("q3", new Quiz(
             "q3",
-            "What is polymorphism?",
+            "A subclass wants to call a method defined in its superclass. Which keyword is used?",
             new String[]{
-                "A) A class with no methods",
-                "B) The ability of an object to take many forms",
-                "C) A private variable",
-                "D) A static method"
-            },
-            "B"
-        ));
-        questions.put("q4", new Quiz(
-            "q4",
-            "Which of the following is NOT a principle of OOP?",
-            new String[]{
-                "A) Encapsulation",
-                "B) Inheritance",
-                "C) Polymorphism",
-                "D) Compilation"
+                "A) this",
+                "B) parent",
+                "C) base",
+                "D) super"
             },
             "D"
         ));
+        questions.put("q4", new Quiz(
+            "q4",
+            "Which is a key benefit of inheritance?",
+            new String[]{
+                "A) It prevents any method from being overridden",
+                "B) It allows code reuse by sharing fields and methods across classes",
+                "C) It ensures all classes have the same methods",
+                "D) It removes the need for constructors in subclasses"
+            },
+            "B"
+        ));
         questions.put("q5", new Quiz(
             "q5",
-            "What does the 'this' keyword refer to in Java?",
+            "Which of the following is not inherited by a subclass?",
             new String[]{
-                "A) The current class",
-                "B) The current method",
-                "C) The current object instance",
-                "D) The parent class"
+                "A) Public methods",
+                "B) Protected fields",
+                "C) Private fields",
+                "D) All of the above are inherited"
             },
             "C"
         ));
