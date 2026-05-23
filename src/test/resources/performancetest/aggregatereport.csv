@@ -1,0 +1,4 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
+Get Quiz Question 1,250,4,2,4,5,8,1,327,0.000%,25.45825,10.14,3.16
+Submit Quiz Answer,250,3,2,4,5,7,1,56,0.000%,26.32965,6.17,5.68
+TOTAL,500,3,2,4,5,8,1,327,0.000%,50.90613,16.11,8.65

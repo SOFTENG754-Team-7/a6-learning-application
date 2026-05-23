@@ -1,0 +1,4 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Get Quiz Question 1,250,4,1,327,21.94,0.000%,25.45825,10.14,3.16,408.0
+Submit Quiz Answer,250,3,1,56,4.84,0.000%,26.32965,6.17,5.68,240.0
+TOTAL,500,3,1,327,15.90,0.000%,50.90613,16.11,8.65,324.0
